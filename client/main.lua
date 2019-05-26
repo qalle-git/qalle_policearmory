@@ -116,9 +116,9 @@ OpenWeaponStorage = function()
 
 		ESX.UI.Menu.CloseAll()
 
-		local closestPed, closestPedDst = ESX.Game.GetClosestPed(Location)
+		local closestPed, closestPedDst = ESX.Game.GetClosestPed(PedLocation)
 
-		if DoesEntityExist(closestPed) and closestPedDst >= 5.0 then
+		if (DoesEntityExist(closestPed) and closestPedDst >= 5.0) or IsPedAPlayer(closestPed) then
 			RefreshPed(true) -- failsafe if the ped somehow dissapear.
 
 			ESX.ShowNotification("Please try again.")
